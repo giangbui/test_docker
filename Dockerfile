@@ -23,8 +23,8 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     python-pip \
     python-setuptools \
     sudo \
-    vim
-#     && pip install --upgrade pip \
+    vim \
+    && pip install --upgrade pip
 #     && pip install --upgrade setuptools \
 #     && pip install uwsgi \
 #     && mkdir /var/www/peregrine \
