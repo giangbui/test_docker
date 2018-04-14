@@ -25,15 +25,15 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     sudo \
     vim \
     && pip install --upgrade pip \
-    #&& pip install --upgrade setuptools \
-    && pip install uwsgi
-#     && mkdir /var/www/peregrine \
-#     && mkdir -p /var/www/.cache/Python-Eggs/ \
-#     && chown www-data -R /var/www/.cache/Python-Eggs/ \
-#     && mkdir /run/nginx/
+    && pip install --upgrade setuptools \
+    #&& pip install uwsgi
+    && mkdir /var/www/peregrine \
+    && mkdir -p /var/www/.cache/Python-Eggs/ \
+    && chown www-data -R /var/www/.cache/Python-Eggs/ \
+    && mkdir /run/nginx/
 
 EXPOSE 80
 
 WORKDIR /var/www/peregrine
 
-CMD /peregrine/dockerrun.bash
+#CMD /peregrine/dockerrun.bash
