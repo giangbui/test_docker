@@ -1,4 +1,7 @@
-FROM ubuntu:17.10
+# To run: docker run -v /path/to/wsgi.py:/var/www/peregrine/wsgi.py --name=peregrine -p 81:80 peregrine
+# To check running container: docker exec -it peregrine /bin/bash
+
+FROM ubuntu:16.04
 
 ENV DEBIAN_FRONTEND=noninteractive
 
@@ -20,11 +23,17 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     python-pip \
     python-setuptools \
     sudo \
-    vim \
-    && pip install --upgrade pip \
-    && pip install --upgrade setuptools \
-    && pip install uwsgi \
-    && mkdir /var/www/sheepdog \
-    && mkdir -p /var/www/.cache/Python-Eggs/ \
-    && chown www-data -R /var/www/.cache/Python-Eggs/ \
-    && mkdir /run/nginx/
+    vim
+#     && pip install --upgrade pip \
+#     && pip install --upgrade setuptools \
+#     && pip install uwsgi \
+#     && mkdir /var/www/peregrine \
+#     && mkdir -p /var/www/.cache/Python-Eggs/ \
+#     && chown www-data -R /var/www/.cache/Python-Eggs/ \
+#     && mkdir /run/nginx/
+
+EXPOSE 80
+
+WORKDIR /var/www/peregrine
+
+CMD /peregrine/dockerrun.bash
