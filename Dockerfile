@@ -32,10 +32,6 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     && chown www-data -R /var/www/.cache/Python-Eggs/ \
     && mkdir /run/nginx/
 
-COPY . /peregrine
-COPY ./deployment/uwsgi/uwsgi.ini /etc/uwsgi/uwsgi.ini
-COPY ./deployment/nginx/nginx.conf /etc/nginx/
-COPY ./deployment/nginx/uwsgi.conf /etc/nginx/sites-available/
 WORKDIR /peregrine
 
 # RUN pip install -r requirements.txt \
