@@ -24,9 +24,9 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     python-setuptools \
     sudo \
     vim \
-    && pip install --upgrade pip \
+    #&& pip install --upgrade pip \
     && pip install --upgrade setuptools \
-    #&& pip install uwsgi \
+    && pip install uwsgi==2.0.14 \
     && mkdir /var/www/peregrine \
     && mkdir -p /var/www/.cache/Python-Eggs/ \
     && chown www-data -R /var/www/.cache/Python-Eggs/ \
